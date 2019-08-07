@@ -1,0 +1,18 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class BallGame2 extends JFrame {
+	
+	
+	void lauchFrame() {
+		setSize(856,500);
+		setLocation(40,40);
+		setVisible(true);
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("×ÀÇòÓÎÏ·£¡");
+		BallGame2 game = new BallGame2();
+		game.lauchFrame();
+	}
+}

@@ -1,0 +1,46 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class BallGame extends JFrame {
+	
+	Image ball = Toolkit.getDefaultToolkit().getImage("images/ball.png");
+	Image desk = Toolkit.getDefaultToolkit().getImage("images/desk.jpg");
+	
+	//画窗口
+	public void paint(Graphics g) {
+		g.drawImage(desk, 0, 0, null);
+		g.drawImage(ball, 100, 100, null);
+		
+			
+	}
+	
+	
+	//加载窗口
+	void loadwindows() {
+		setSize(856,500);
+		setLocation(40,40);
+		setVisible(true);
+		
+		
+		while(true) {
+			try {
+				repaint();
+				
+			}catch(Exception e) {
+				e.getStackTrace();
+			}
+		}
+		
+	}
+
+	// 这是java主函数入口
+	public static void main(String[] args) {
+
+		System.out.println("桌球游戏");
+		
+		BallGame game = new BallGame();
+		game.loadwindows();
+
+	}
+
+}

@@ -1,0 +1,59 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class BallGame2 extends JFrame {
+	//获取images对象
+	Image ball = Toolkit.getDefaultToolkit().getImage("images/ball.png");
+	
+	Image desk = Toolkit.getDefaultToolkit().getImage("images/desk.jpg");
+	
+	double x = 100;
+	double y = 100;
+	
+	double degree = 3.14/3;//角度
+	public void paint(Graphics g) {
+		g.drawImage(desk, 0, 0, null);
+		g.drawImage(ball, (int)x, (int)y, null);
+//		x = x + 1;
+		
+		x = x + 10*Math.cos(degree);
+		y = y + 10*Math.sin(degree);
+		
+		//解决上下边界的问题
+		if(y>500-40-30||y<40+40) {
+			degree = -degree;
+		}
+		
+		//解决左右边界的问题
+		if(x>865-40-30||x<40) {
+			degree = 3.14-degree;
+		}
+		
+		
+	}
+	
+	//画窗口
+	void lauchFrame() {
+		setSize(856,500);
+		setLocation(40,40);
+		setVisible(true);
+		
+		while(true) {
+			try {
+				System.out.println("窗口加载了一次！");
+				repaint();
+				
+				Thread.sleep(40);
+			}catch(Exception e) {
+				e.getStackTrace();
+			}
+		}
+	}
+	
+	//java入口函数
+	public static void main(String[] args) {
+		System.out.println("桌球游戏！");
+		BallGame2 game = new BallGame2();
+		game.lauchFrame();
+	}
+}
